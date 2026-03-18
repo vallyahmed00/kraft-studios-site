@@ -141,6 +141,42 @@ function closeMobileMenu() {
   document.body.style.overflow = '';
 }
 
+/* ─── 3b. ENQUIRE POPOVER ─── */
+const enquireBtn = document.getElementById('enquireBtn');
+const enquirePopover = document.getElementById('enquirePopover');
+
+function closeEnquire() {
+  if (!enquirePopover || !enquireBtn) return;
+  enquirePopover.classList.remove('open');
+  enquireBtn.setAttribute('aria-expanded', 'false');
+}
+
+function toggleEnquire() {
+  if (!enquirePopover || !enquireBtn) return;
+  const isOpen = enquirePopover.classList.toggle('open');
+  enquireBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+
+// Allow inline onclick in HTML without breaking pages that don't have it
+window.__closeEnquire = closeEnquire;
+
+if (enquireBtn && enquirePopover) {
+  enquireBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleEnquire();
+  });
+
+  document.addEventListener('click', (e) => {
+    const t = e.target;
+    const clickedInside = enquirePopover.contains(t) || enquireBtn.contains(t);
+    if (!clickedInside) closeEnquire();
+  }, { capture: true });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeEnquire();
+  });
+}
+
 /* ─── 4. SCROLL REVEAL ─── */
 const revealEls = document.querySelectorAll('.reveal');
 const ro = new IntersectionObserver((entries) => {

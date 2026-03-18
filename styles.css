@@ -121,6 +121,78 @@ body {
   padding-bottom: 1px;
 }
 
+.nav-enquire {
+  appearance: none;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+.nav-enquire:hover { border-color: rgba(255,255,255,0.28); background: rgba(255,255,255,0.06); transform: translateY(-1px); }
+.nav-enquire:active { transform: translateY(0); }
+
+.nav-inner { position: relative; }
+.enquire-popover {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 32px;
+  width: min(360px, calc(100vw - 64px));
+  background: #ffffff;
+  color: #111;
+  border-radius: 14px;
+  padding: 16px 16px 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+  display: none;
+  z-index: 800;
+}
+.enquire-popover.open { display: block; }
+.enquire-title {
+  font-family: var(--ff-serif);
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+.enquire-sub {
+  color: rgba(17,17,17,0.7);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.enquire-actions { display: grid; gap: 10px; }
+.enquire-link {
+  color: #111;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(0,0,0,0.02);
+  transition: background var(--transition), border-color var(--transition);
+}
+.enquire-link:hover { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.12); }
+.enquire-btn {
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 11px 12px;
+  border-radius: 10px;
+  background: #111;
+  color: #fff;
+  border: 1px solid #111;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: opacity var(--transition), transform var(--transition);
+}
+.enquire-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -1191,4 +1263,5 @@ body {
   .footer-bottom { flex-direction: column; align-items: flex-start; }
   .process-item { grid-template-columns: 60px 1fr; gap: 16px; }
   .book-form { padding: 0; }
+  .enquire-popover { right: 20px; }
 }

@@ -26,11 +26,26 @@
         <li><a href="#work">Work</a></li>
         <li><a href="#process">Process</a></li>
         <li><a href="custom-boxes.html">Custom boxes</a></li>
+        <li>
+          <button type="button" class="nav-enquire" id="enquireBtn" aria-haspopup="dialog" aria-controls="enquirePopover" aria-expanded="false">
+            Enquire
+          </button>
+        </li>
         <li><a href="#book" class="nav-cta">Book a session</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span>
       </button>
+
+      <div class="enquire-popover" id="enquirePopover" role="dialog" aria-label="Enquiry options">
+        <p class="enquire-title">Quick enquiry</p>
+        <p class="enquire-sub">Prefer a quick message? Use email or call. Or open the full booking form.</p>
+        <div class="enquire-actions">
+          <a class="enquire-link" href="mailto:kraftcast@gmail.com">kraftcast@gmail.com</a>
+          <a class="enquire-link" href="tel:+27814922829">+27 81 492 2829</a>
+          <a class="enquire-btn" href="#book" onclick="window.__closeEnquire?.()">Open booking form</a>
+        </div>
+      </div>
     </div>
   </nav>
 
