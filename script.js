@@ -40,54 +40,42 @@
   scene.add(fillLight);
   scene.add(fillLight.target);
 
-  const textureLoader = new THREE.TextureLoader();
-  const texturePath = '/assets/kraft-logo.png';
+  // Sculptural centerpiece (no external assets required)
+  const goldMat = new THREE.MeshStandardMaterial({
+    color: 0xc9a84c,
+    metalness: 0.95,
+    roughness: 0.12,
+  });
 
-  let logoMesh;
+  const ghostMat = new THREE.MeshBasicMaterial({
+    color: 0xc9a84c,
+    wireframe: true,
+    opacity: 0.07,
+    transparent: true,
+  });
 
-  textureLoader.load(
-    texturePath,
-    (tex) => {
-      tex.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy?.() || 1);
-      tex.encoding = THREE.sRGBEncoding;
+  const ring1 = new THREE.Mesh(new THREE.TorusGeometry(1.35, 0.05, 20, 120), goldMat);
+  scene.add(ring1);
 
-      const aspect = tex.image.width / tex.image.height || 3;
-      const height = 1.6;
-      const width = height * aspect;
+  const ring2 = new THREE.Mesh(new THREE.TorusGeometry(0.95, 0.035, 16, 90), goldMat);
+  scene.add(ring2);
 
-      const geo = new THREE.BoxGeometry(width, height, 0.08, 1, 1, 1);
-      const faceMats = [];
-      for (let i = 0; i < 6; i++) {
-        if (i === 4) {
-          faceMats.push(new THREE.MeshStandardMaterial({
-            map: tex,
-            transparent: true,
-            roughness: 0.4,
-            metalness: 0.1,
-          }));
-        } else {
-          faceMats.push(new THREE.MeshStandardMaterial({
-            color: 0xffffff,
-            roughness: 0.8,
-            metalness: 0.0,
-          }));
-        }
-      }
+  const bladeGroup = new THREE.Group();
+  const N = 7;
+  for (let i = 0; i < N; i++) {
+    const blade = new THREE.Mesh(new THREE.CylinderGeometry(0, 0.14, 0.44, 3), goldMat);
+    const a = (i / N) * Math.PI * 2;
+    blade.position.set(Math.cos(a) * 0.62, Math.sin(a) * 0.62, 0);
+    blade.rotation.z = a + Math.PI / 2;
+    bladeGroup.add(blade);
+  }
+  scene.add(bladeGroup);
 
-      logoMesh = new THREE.Mesh(geo, faceMats);
-      logoMesh.position.set(0, 0.1, 0);
-      scene.add(logoMesh);
-    },
-    undefined,
-    () => {
-      // Fallback simple white card if texture fails
-      const geo = new THREE.BoxGeometry(3, 1.5, 0.08);
-      const mat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.9, metalness: 0.0 });
-      logoMesh = new THREE.Mesh(geo, mat);
-      logoMesh.position.set(0, 0.1, 0);
-      scene.add(logoMesh);
-    }
-  );
+  const ghost = new THREE.Mesh(new THREE.IcosahedronGeometry(1.8, 1), ghostMat);
+  scene.add(ghost);
+
+  const centre = new THREE.Mesh(new THREE.SphereGeometry(0.18, 32, 32), goldMat);
+  scene.add(centre);
 
   // Mouse parallax
   let mx = 0, my = 0;
@@ -107,12 +95,19 @@
     requestAnimationFrame(tick);
     const t = clock.getElapsedTime();
 
-    if (logoMesh) {
-      const baseRot = t * 0.45;
-      logoMesh.rotation.y = baseRot + mx * 0.6;
-      logoMesh.rotation.x = Math.sin(t * 0.6) * 0.25 + my * 0.4;
-      logoMesh.position.y = 0.1 + Math.sin(t * 0.8) * 0.08;
-    }
+    ring1.rotation.z = t * 0.22;
+    ring1.rotation.x = Math.sin(t * 0.18) * 0.15;
+
+    ring2.rotation.z = -t * 0.38;
+    ring2.rotation.y = Math.cos(t * 0.2) * 0.1;
+
+    bladeGroup.rotation.z = t * 0.55;
+
+    ghost.rotation.y = t * 0.09;
+    ghost.rotation.x = t * 0.06;
+
+    scene.rotation.x += (my * 0.18 - scene.rotation.x) * 0.05;
+    scene.rotation.y += (mx * 0.28 - scene.rotation.y) * 0.05;
 
     renderer.render(scene, camera);
   }

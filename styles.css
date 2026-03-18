@@ -93,12 +93,12 @@ body {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
+  font-family: var(--ff-serif);
+  font-size: 1.2rem;
+  color: var(--text);
+  letter-spacing: 0.02em;
 }
-.nav-logo-img {
-  height: 26px;
-  width: auto;
-  display: block;
-}
+.nav-logo span { color: var(--gold); }
 
 .nav-links {
   display: flex;
