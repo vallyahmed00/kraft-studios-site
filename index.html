@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kraft Studios — Photography</title>
+  <meta name="description" content="Kraft Studios is a photography studio obsessed with real moments. Based locally, booking everywhere." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ─── NAV ─── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <img src="/assets/kraft-logo.png" alt="Kraft Studios" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">Studio</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="custom-boxes.html">Custom boxes</a></li>
+        <li><a href="#book" class="nav-cta">Book a session</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <ul>
+      <li><a href="#about" onclick="closeMobileMenu()">Studio</a></li>
+      <li><a href="#work" onclick="closeMobileMenu()">Work</a></li>
+      <li><a href="#process" onclick="closeMobileMenu()">Process</a></li>
+      <li><a href="custom-boxes.html">Custom boxes</a></li>
+      <li><a href="#book" onclick="closeMobileMenu()">Book a session</a></li>
+    </ul>
+    <p class="mobile-tagline">kraftcast@gmail.com</p>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <canvas id="logoCanvas" aria-hidden="true"></canvas>
+
+    <div class="hero-layout">
+      <div class="hero-left">
+        <p class="hero-index">[ 01 ]</p>
+        <h1 class="hero-headline">
+          Photo&shy;graphy<br />
+          <em>that stays</em><br />
+          with you.
+        </h1>
+        <a href="#book" class="btn-line hero-cta">
+          <span>Start here</span>
+          <svg width="20" height="9" viewBox="0 0 20 9" fill="none"><path d="M0 4.5H19M19 4.5L15 1M19 4.5L15 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+      <div class="hero-right">
+        <p class="hero-tagline">
+          Weddings. Families.<br />
+          Events. Portraits.<br />
+          And everything in between.
+        </p>
+        <p class="hero-location">— Based locally. Shooting everywhere.</p>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ─── MARQUEE ─── -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Weddings</span><span class="dot">·</span>
+      <span>Birthdays</span><span class="dot">·</span>
+      <span>Family Portraits</span><span class="dot">·</span>
+      <span>Corporate Events</span><span class="dot">·</span>
+      <span>Sports</span><span class="dot">·</span>
+      <span>Studio Portraits</span><span class="dot">·</span>
+      <span>Weddings</span><span class="dot">·</span>
+      <span>Birthdays</span><span class="dot">·</span>
+      <span>Family Portraits</span><span class="dot">·</span>
+      <span>Corporate Events</span><span class="dot">·</span>
+      <span>Sports</span><span class="dot">·</span>
+      <span>Studio Portraits</span><span class="dot">·</span>
+    </div>
+  </div>
+
+  <!-- ─── ABOUT ─── -->
+  <section id="about">
+    <div class="container">
+      <div class="about-layout">
+
+        <div class="about-lhs reveal">
+          <p class="section-index">[ 02 ]</p>
+          <h2 class="about-heading">
+            I'm not here<br />
+            to make <em>nice</em> photos.
+          </h2>
+        </div>
+
+        <div class="about-rhs reveal">
+          <p class="about-body">
+            I'm here to make <strong>yours</strong>. The frame that stops your kid mid-laugh. The look between two people who've waited years for that moment. The party that nobody wanted to end.
+          </p>
+          <p class="about-body">
+            Kraft Studios was built on one idea — that a photograph should feel like something, not just look like something. Every session I take on is personal to me, because I only take on sessions I believe I can do justice to.
+          </p>
+          <p class="about-body">
+            I work solo. No second shooters unless you request one. Just me, my kit, and an unhealthy obsession with light.
+          </p>
+          <div class="about-rule"></div>
+          <ul class="about-facts">
+            <li>250+ sessions delivered</li>
+            <li>5 years in the industry</li>
+            <li>Full-day and half-day bookings available</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WORK / GALLERY ─── -->
+  <section id="work">
+    <div class="work-header container">
+      <p class="section-index">[ 03 ]</p>
+      <div class="work-header-row">
+        <h2 class="work-heading">The work</h2>
+        <p class="work-sub">The owner uploads work here directly. Check back often — the portfolio grows with every session.</p>
+      </div>
+    </div>
+
+    <!-- Filter bar (hidden until items exist) -->
+    <div class="filter-wrap" id="filterWrap" style="display:none">
+      <div class="container">
+        <div class="filter-btns" id="filterBtns">
+          <button class="filter-btn active" data-cat="All">All</button>
+          <button class="filter-btn" data-cat="Wedding">Wedding</button>
+          <button class="filter-btn" data-cat="Birthday">Birthday</button>
+          <button class="filter-btn" data-cat="Family">Family</button>
+          <button class="filter-btn" data-cat="Corporate">Corporate</button>
+          <button class="filter-btn" data-cat="Sports">Sports</button>
+          <button class="filter-btn" data-cat="Portrait">Portrait</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-empty" id="galleryEmpty">
+        <p>Portfolio coming soon — check back shortly.</p>
+      </div>
+    </div>
+
+    <!-- Admin toggle -->
+    <div class="admin-toggle-wrap container">
+      <button class="btn-admin" id="adminToggleBtn" onclick="toggleAdminPanel()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><circle cx="7" cy="7" r="2.5" stroke="currentColor" stroke-width="1.2"/></svg>
+        Owner panel
+      </button>
+    </div>
+  </section>
+
+  <!-- ─── ADMIN PANEL ─── -->
+  <div class="admin-panel" id="adminPanel">
+    <div class="admin-inner">
+      <div class="admin-header">
+        <h3>Gallery manager</h3>
+        <button class="admin-close" onclick="toggleAdminPanel()" aria-label="Close panel">✕</button>
+      </div>
+
+      <div id="adminGate">
+        <p class="admin-hint">Enter your password to manage the gallery.</p>
+        <div class="admin-field-row">
+          <input type="password" id="adminPassInput" placeholder="Password" autocomplete="current-password" />
+          <button class="btn-primary-sm" onclick="checkAdminPass()">Unlock</button>
+        </div>
+        <p class="admin-error" id="adminError"></p>
+      </div>
+
+      <div id="adminControls" style="display:none">
+        <div class="upload-zone" id="uploadZone">
+          <input type="file" id="fileInput" accept="image/*,video/*" multiple hidden />
+          <div class="upload-zone-content" onclick="document.getElementById('fileInput').click()">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 22V10M16 10L11 15M16 10L21 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="4" width="24" height="24" rx="4" stroke="currentColor" stroke-width="1.2"/></svg>
+            <p>Click or drag &amp; drop photos or videos here</p>
+            <span>JPG · PNG · WebP · MP4 · MOV</span>
+          </div>
+        </div>
+
+        <div class="admin-caption-row" id="captionRow" style="display:none">
+          <input type="text" id="captionInput" placeholder="Caption (optional)" />
+          <select id="categorySelect">
+            <option value="All">Uncategorised</option>
+            <option value="Wedding">Wedding</option>
+            <option value="Birthday">Birthday</option>
+            <option value="Family">Family</option>
+            <option value="Corporate">Corporate</option>
+            <option value="Sports">Sports</option>
+            <option value="Portrait">Portrait</option>
+          </select>
+          <button class="btn-primary-sm" onclick="addToGallery()">Add to gallery</button>
+        </div>
+
+        <div class="admin-preview" id="adminPreview"></div>
+
+        <div class="admin-manage">
+          <p class="admin-manage-label">Existing items</p>
+          <div class="admin-thumbs" id="adminThumbs"></div>
+        </div>
+
+        <div class="admin-save-row">
+          <button class="btn-ghost-sm" onclick="exportGalleryData()">Export backup</button>
+          <button class="btn-ghost-sm" onclick="importGalleryData()">Restore backup</button>
+          <input type="file" id="importInput" accept=".json" hidden onchange="handleImport(event)" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="admin-overlay" id="adminOverlay" onclick="toggleAdminPanel()"></div>
+
+  <!-- ─── LIGHTBOX ─── -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+    <button class="lightbox-prev" onclick="lightboxNav(-1)" aria-label="Previous">&#8249;</button>
+    <button class="lightbox-next" onclick="lightboxNav(1)" aria-label="Next">&#8250;</button>
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="" />
+      <video id="lightboxVid" controls style="display:none"></video>
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()"></div>
+
+  <!-- ─── PROCESS ─── -->
+  <section id="process">
+    <div class="container">
+      <div class="process-header reveal">
+        <p class="section-index">[ 04 ]</p>
+        <h2>How it works</h2>
+      </div>
+      <ol class="process-list">
+        <li class="process-item reveal">
+          <span class="process-num">01.</span>
+          <div>
+            <h3>You reach out</h3>
+            <p>Fill in the booking form with your event details. I'll get back to you within 24 hours — usually much sooner. No automated replies, just me.</p>
+          </div>
+        </li>
+        <li class="process-item reveal">
+          <span class="process-num">02.</span>
+          <div>
+            <h3>We talk it through</h3>
+            <p>A short call or chat to understand exactly what you're after. The vibe, the must-have shots, the people who matter. This call is what separates good photos from great ones.</p>
+          </div>
+        </li>
+        <li class="process-item reveal">
+          <span class="process-num">03.</span>
+          <div>
+            <h3>I show up and shoot</h3>
+            <p>On the day, I handle everything on my end. You focus on your people. I focus on the light, the moments, the frames you'll actually want to keep.</p>
+          </div>
+        </li>
+        <li class="process-item reveal">
+          <span class="process-num">04.</span>
+          <div>
+            <h3>Delivery within 2 weeks</h3>
+            <p>Edited, high-resolution files delivered to a private gallery. No watermarks. Print-ready. Yours to keep forever.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ─── BOOK ─── -->
+  <section id="book">
+    <div class="container">
+      <div class="book-layout">
+        <div class="book-lhs reveal">
+          <p class="section-index">[ 05 ]</p>
+          <h2 class="book-heading">
+            Let's make<br />
+            something <em>real.</em>
+          </h2>
+          <p class="book-desc">
+            Tell me what you're planning. I'll tell you honestly whether I'm the right fit — and if I am, we'll get something in the diary.
+          </p>
+          <div class="book-contact">
+            <a href="mailto:kraftcast@gmail.com">kraftcast@gmail.com</a>
+            <a href="tel:+27814922829">+27 81 492 2829</a>
+          </div>
+        </div>
+
+        <form class="book-form reveal" id="bookForm" onsubmit="submitBooking(event)" novalidate>
+          <div class="form-row-2">
+            <div class="form-field">
+              <label for="firstName">First name</label>
+              <input type="text" id="firstName" name="firstName" placeholder="Ahmed" autocomplete="given-name" required />
+            </div>
+            <div class="form-field">
+              <label for="lastName">Last name</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Smith" autocomplete="family-name" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone <span class="optional">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="+27 000 000 000" autocomplete="tel" />
+          </div>
+          <div class="form-row-2">
+            <div class="form-field">
+              <label for="eventType">What's the occasion?</label>
+              <select id="eventType" name="eventType" required>
+                <option value="" disabled selected>Choose one…</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Birthday / Party">Birthday or party</option>
+                <option value="Family Portrait">Family portrait</option>
+                <option value="Corporate Event">Corporate event</option>
+                <option value="Sports">Sports</option>
+                <option value="Studio Portrait">Studio portrait</option>
+                <option value="Other">Something else</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="eventDate">Date</label>
+              <input type="date" id="eventDate" name="eventDate" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="location">Where?</label>
+            <input type="text" id="location" name="location" placeholder="City or venue name" required />
+          </div>
+          <div class="form-field">
+            <label for="message">Anything else I should know? <span class="optional">(optional)</span></label>
+            <textarea id="message" name="message" rows="4" placeholder="Guest count, theme, special moments you want captured — anything helps."></textarea>
+          </div>
+          <div class="form-field form-check">
+            <input type="checkbox" id="agreeTerms" required />
+            <label for="agreeTerms">I'm happy for Kraft Studios to contact me about my enquiry.</label>
+          </div>
+          <button type="submit" class="btn-submit" id="submitBtn">Send enquiry</button>
+          <div class="form-success" id="formSuccess" style="display:none">
+            Done — I'll be in touch shortly.
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer id="footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <p class="footer-logo">Kraft Studios<span>.</span></p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+      <div class="footer-rule"></div>
+      <div class="footer-bottom">
+        <p>© 2026 Kraft Studios. All rights reserved.</p>
+        <p>kraftcast@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

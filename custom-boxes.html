@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kraft Studios — Custom Boxes</title>
+  <meta name="description" content="Order custom sneaker boxes and display boxes. Share dimensions, finish, and quantity—Kraft Studios will quote and confirm with you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="/assets/kraft-logo.png" alt="Kraft Studios" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#book">Book</a></li>
+        <li><a href="custom-boxes.html" class="nav-cta">Custom boxes</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <ul>
+      <li><a href="index.html#work" onclick="closeMobileMenu()">Work</a></li>
+      <li><a href="index.html#book" onclick="closeMobileMenu()">Book</a></li>
+      <li><a href="custom-boxes.html" onclick="closeMobileMenu()">Custom boxes</a></li>
+    </ul>
+    <p class="mobile-tagline">kraftcast@gmail.com</p>
+  </div>
+
+  <main class="page-main">
+    <header class="page-hero">
+      <div class="container">
+        <p class="page-kicker">[ Custom orders ]</p>
+        <h1>Custom sneaker &amp; display boxes</h1>
+        <p>
+          Tell us what you’re packaging (sneakers, collectibles, retail display) and the specs you want.
+          We’ll confirm your requirements and send a quote.
+        </p>
+      </div>
+    </header>
+
+    <section>
+      <div class="container page-split">
+        <div class="page-card reveal">
+          <p class="section-index">[ What we need ]</p>
+          <p class="page-note">
+            The more detail you share, the more accurate the quote will be. If you don’t know something (like material GSM),
+            leave it blank and we’ll recommend options.
+          </p>
+          <div class="about-rule" style="margin:22px 0"></div>
+          <ul class="about-facts">
+            <li>Sneaker boxes (standard + custom sizes)</li>
+            <li>Display boxes (clear window / full print)</li>
+            <li>Foam inserts &amp; dividers (optional)</li>
+            <li>Matte / gloss / soft-touch finishes</li>
+          </ul>
+        </div>
+
+        <form class="book-form reveal page-card" id="customBoxForm" onsubmit="submitCustomBoxOrder(event)" novalidate>
+          <div class="form-row-2">
+            <div class="form-field">
+              <label for="cbName">Full name</label>
+              <input type="text" id="cbName" name="name" placeholder="Ahmed Vally" autocomplete="name" required />
+            </div>
+            <div class="form-field">
+              <label for="cbEmail">Email</label>
+              <input type="email" id="cbEmail" name="email" placeholder="you@example.com" autocomplete="email" required />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-field">
+              <label for="cbPhone">Phone <span class="optional">(optional)</span></label>
+              <input type="tel" id="cbPhone" name="phone" placeholder="+27 000 000 000" autocomplete="tel" />
+            </div>
+            <div class="form-field">
+              <label for="cbType">Box type</label>
+              <select id="cbType" name="boxType" required>
+                <option value="" disabled selected>Choose one…</option>
+                <option value="Sneaker box">Sneaker box</option>
+                <option value="Display box">Display box</option>
+                <option value="Both">Both</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-field">
+              <label for="cbQty">Quantity</label>
+              <input type="number" id="cbQty" name="quantity" min="1" step="1" placeholder="50" required />
+            </div>
+            <div class="form-field">
+              <label for="cbTimeline">Needed by <span class="optional">(optional)</span></label>
+              <input type="date" id="cbTimeline" name="neededBy" />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-field">
+              <label for="cbDims">Internal dimensions (L × W × H)</label>
+              <input type="text" id="cbDims" name="dimensions" placeholder="e.g. 34cm × 22cm × 13cm" required />
+            </div>
+            <div class="form-field">
+              <label for="cbFinish">Finish <span class="optional">(optional)</span></label>
+              <select id="cbFinish" name="finish">
+                <option value="" selected>Not sure yet</option>
+                <option value="Matte">Matte</option>
+                <option value="Gloss">Gloss</option>
+                <option value="Soft-touch">Soft-touch</option>
+                <option value="Emboss / Deboss">Emboss / deboss</option>
+                <option value="Foil">Foil</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="cbNotes">Notes</label>
+            <textarea id="cbNotes" name="notes" rows="4" placeholder="Brand colors, logo placement, window cut-outs, inserts, printing details, anything you want us to know."></textarea>
+          </div>
+
+          <div class="form-field form-check">
+            <input type="checkbox" id="cbAgree" required />
+            <label for="cbAgree">I’m happy for Kraft Studios to contact me about my custom box order.</label>
+          </div>
+
+          <button type="submit" class="btn-submit" id="cbSubmitBtn">Submit order request</button>
+          <div class="form-success" id="cbSuccess" style="display:none">
+            Submitted — redirecting you now…
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <p class="footer-logo">Kraft Studios<span>.</span></p>
+        <div class="footer-socials">
+          <a href="index.html" aria-label="Home">Home</a>
+          <a href="custom-boxes.html" aria-label="Custom boxes">Custom boxes</a>
+        </div>
+      </div>
+      <div class="footer-rule"></div>
+      <div class="footer-bottom">
+        <p>© 2026 Kraft Studios. All rights reserved.</p>
+        <p>kraftcast@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function submitCustomBoxOrder(e) {
+      e.preventDefault();
+      const btn = document.getElementById('cbSubmitBtn');
+      const ok = document.getElementById('cbSuccess');
+
+      btn.textContent = 'Submitting…';
+      btn.disabled = true;
+
+      const form = e.target;
+      const data = Object.fromEntries(new FormData(form));
+      const orderId = 'CB-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(16).slice(2, 6).toUpperCase();
+
+      const order = {
+        id: orderId,
+        createdAt: new Date().toISOString(),
+        ...data,
+      };
+
+      try {
+        const existing = JSON.parse(localStorage.getItem('ks_custom_orders') || '[]');
+        existing.unshift(order);
+        localStorage.setItem('ks_custom_orders', JSON.stringify(existing));
+      } catch (err) {
+        console.info('[Kraft Studios] Custom box order:', order);
+      }
+
+      ok.style.display = 'block';
+      setTimeout(() => {
+        window.location.href = 'kick-kraft.html?orderId=' + encodeURIComponent(orderId);
+      }, 650);
+    }
+  </script>
+</body>
+</html>
+

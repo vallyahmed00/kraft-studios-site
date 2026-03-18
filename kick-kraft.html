@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kick Kraft — Confirmation</title>
+  <meta name="description" content="Kick Kraft confirmation page for custom box orders." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="/assets/kraft-logo.png" alt="Kraft Studios" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="custom-boxes.html">Custom boxes</a></li>
+        <li><a href="index.html#book" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <ul>
+      <li><a href="custom-boxes.html" onclick="closeMobileMenu()">Custom boxes</a></li>
+      <li><a href="index.html#book" onclick="closeMobileMenu()">Contact</a></li>
+    </ul>
+    <p class="mobile-tagline">kraftcast@gmail.com</p>
+  </div>
+
+  <main class="page-main">
+    <header class="page-hero">
+      <div class="container">
+        <p class="page-kicker">[ Kick Kraft ]</p>
+        <h1>Your request is in.</h1>
+        <p id="orderLine">Thanks — we’ll review the specs and get back to you with a quote.</p>
+      </div>
+    </header>
+
+    <section>
+      <div class="container page-split">
+        <div class="page-card reveal">
+          <p class="section-index">[ Next steps ]</p>
+          <p class="page-note">
+            If you have reference images, dielines, or a logo file, reply to our email with those attachments and we’ll speed things up.
+          </p>
+          <div class="about-rule" style="margin:22px 0"></div>
+          <div class="book-contact">
+            <a href="mailto:kraftcast@gmail.com">kraftcast@gmail.com</a>
+            <a href="tel:+27814922829">+27 81 492 2829</a>
+          </div>
+        </div>
+
+        <div class="page-card reveal">
+          <p class="section-index">[ Quick links ]</p>
+          <div style="display:flex; flex-direction:column; gap:12px; margin-top:6px;">
+            <a class="btn-line" href="custom-boxes.html"><span>Place another request</span>
+              <svg width="20" height="9" viewBox="0 0 20 9" fill="none"><path d="M0 4.5H19M19 4.5L15 1M19 4.5L15 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </a>
+            <a class="btn-line" href="index.html"><span>Back to Kraft Studios</span>
+              <svg width="20" height="9" viewBox="0 0 20 9" fill="none"><path d="M0 4.5H19M19 4.5L15 1M19 4.5L15 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+          <p class="page-note" style="margin-top:22px" id="orderIdBlock"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <p class="footer-logo">Kraft Studios<span>.</span></p>
+        <div class="footer-socials">
+          <a href="index.html" aria-label="Home">Home</a>
+          <a href="custom-boxes.html" aria-label="Custom boxes">Custom boxes</a>
+        </div>
+      </div>
+      <div class="footer-rule"></div>
+      <div class="footer-bottom">
+        <p>© 2026 Kraft Studios. All rights reserved.</p>
+        <p>kraftcast@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const orderId = params.get('orderId');
+      const orderLine = document.getElementById('orderLine');
+      const orderIdBlock = document.getElementById('orderIdBlock');
+
+      if (orderId) {
+        orderLine.textContent = "Thanks — we’ve received your custom box request and we’ll get back to you with a quote.";
+        orderIdBlock.textContent = "Order reference: " + orderId;
+      } else {
+        orderIdBlock.textContent = "Tip: after submitting a request, you’ll see an order reference here.";
+      }
+    })();
+  </script>
+</body>
+</html>
+

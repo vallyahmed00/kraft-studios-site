@@ -1,0 +1,14 @@
+{
+  "name": "kraft-studios-site",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo \"Static site - no build\"",
+    "start": "serve ."
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.0"
+  }
+}
+
